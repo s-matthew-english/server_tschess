@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="949aca5a-a79a-4d32-b5f3-0b849445edc9" name="Default" comment="" />
+    <list default="true" id="949aca5a-a79a-4d32-b5f3-0b849445edc9" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ChatWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Sender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SimpleChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Receiver.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,11 +18,49 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Receiver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Receiver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Receiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="21" selection-end-column="21" />
+            <state relative-caret-position="140">
+              <caret line="5" column="28" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ChatWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="757">
+              <caret line="84" column="29" selection-start-line="84" selection-start-column="15" selection-end-line="84" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2848#3115#0" expanded="true" />
+                <element signature="e#3114#3115#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sender.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Sender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="17" column="7" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleChatServer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SimpleChatServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="10" column="15" lean-forward="true" selection-end-line="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -39,6 +83,16 @@
         <entry key="$USER_HOME$/PegaSys/anti/pantheon" value="PREVIEW" />
         <entry key="$USER_HOME$/PegaSys/ethereumj" value="PREVIEW" />
       </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Receiver.java" />
+        <option value="$PROJECT_DIR$/src/ChatWindow.java" />
+        <option value="$PROJECT_DIR$/src/Sender.java" />
+        <option value="$PROJECT_DIR$/src/SimpleChatServer.java" />
+      </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -184,8 +238,40 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Receiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        <state relative-caret-position="140">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChatWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="757">
+          <caret line="84" column="29" selection-start-line="84" selection-start-column="15" selection-end-line="84" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2848#3115#0" expanded="true" />
+            <element signature="e#3114#3115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Sender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SimpleChatServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="10" column="15" lean-forward="true" selection-end-line="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

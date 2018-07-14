@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="949aca5a-a79a-4d32-b5f3-0b849445edc9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatWindow.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NiochatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NiochatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Receiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimpleChatServer.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +17,8 @@
       <file leaf-file-name="NiochatServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NiochatServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="86" column="22" lean-forward="true" selection-end-line="102" selection-end-column="1" />
+            <state relative-caret-position="670">
+              <caret line="95" column="37" lean-forward="true" selection-end-line="97" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -210,7 +205,7 @@
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.13726541" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.13726541" />
       <window_info anchor="bottom" id="Find" order="5" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
@@ -298,8 +293,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NiochatServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="86" column="22" lean-forward="true" selection-end-line="102" selection-end-column="1" />
+        <state relative-caret-position="670">
+          <caret line="95" column="37" lean-forward="true" selection-end-line="97" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -44,7 +44,6 @@ public class NiochatServer implements Runnable {
     }
 
     private final ByteBuffer welcomeBuf = ByteBuffer.wrap("Welcome to NioChat!\n".getBytes());
-
     private void handleAccept(SelectionKey key) throws IOException {
         SocketChannel sc = ((ServerSocketChannel) key.channel()).accept();
         String address = (new StringBuilder( sc.socket().getInetAddress().toString() )).append(":").append( sc.socket().getPort() ).toString();
@@ -78,15 +77,11 @@ public class NiochatServer implements Runnable {
         }
 
         System.out.println(msg);
-        broadcast();
+        broadcast(msg);
     }
 
-    private void broadcast() throws IOException {
-
-        Scanner scan = new Scanner(System.in);
-        int number = scan.nextInt();
-
-        ByteBuffer msgBuf=ByteBuffer.wrap(String.valueOf(number).getBytes());
+    private void broadcast(String msg) throws IOException {
+        ByteBuffer msgBuf=ByteBuffer.wrap(msg.getBytes());
         for(SelectionKey key : selector.keys()) {
             if(key.isValid() && key.channel() instanceof SocketChannel) {
                 SocketChannel sch=(SocketChannel) key.channel();

@@ -53,7 +53,7 @@ public class ChatWindow extends JFrame {
 
         setResizable(false);
         setTitle("Chat Server");
-        setSize(550, 450);
+        setSize(1000, 1000);
         Container contentPane = getContentPane();
         contentPane.setLayout(new FlowLayout());
         contentPane.add(chatViewScrollPane);

@@ -20,38 +20,40 @@ public class NiochatServer implements Runnable {
         this.ssc.register(selector, SelectionKey.OP_ACCEPT);
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         try {
             System.out.println("Server starting on port " + this.port);
 
             Iterator<SelectionKey> iter;
             SelectionKey key;
-            while(this.ssc.isOpen()) {
+            while (this.ssc.isOpen()) {
                 selector.select();
-                iter=this.selector.selectedKeys().iterator();
-                while(iter.hasNext()) {
+                iter = this.selector.selectedKeys().iterator();
+                while (iter.hasNext()) {
                     key = iter.next();
                     iter.remove();
 
-                    if(key.isAcceptable()) this.handleAccept(key);
-                    if(key.isReadable()) this.handleRead(key);
+                    if (key.isAcceptable()) this.handleAccept(key);
+                    if (key.isReadable()) this.handleRead(key);
                 }
             }
-        } catch(IOException e) {
-            System.out.println("IOException, server of port " +this.port+ " terminating. Stack trace:");
+        } catch (IOException e) {
+            System.out.println("IOException, server of port " + this.port + " terminating. Stack trace:");
             e.printStackTrace();
         }
     }
 
     private final ByteBuffer welcomeBuf = ByteBuffer.wrap("MESSAGE FROM THE SERVER!\n".getBytes());
+
     private void handleAccept(SelectionKey key) throws IOException {
         SocketChannel sc = ((ServerSocketChannel) key.channel()).accept();
-        String address = (new StringBuilder( sc.socket().getInetAddress().toString() )).append(":").append( sc.socket().getPort() ).toString();
+        String address = (new StringBuilder(sc.socket().getInetAddress().toString())).append(":").append(sc.socket().getPort()).toString();
         sc.configureBlocking(false);
         sc.register(selector, SelectionKey.OP_READ, address);
         sc.write(welcomeBuf);
         welcomeBuf.rewind();
-        System.out.println("accepted connection from: "+address);
+        System.out.println("accepted connection from: " + address);
     }
 
     private void handleRead(SelectionKey key) throws IOException {
@@ -60,7 +62,7 @@ public class NiochatServer implements Runnable {
 
         buf.clear();
         int read = 0;
-        while( (read = ch.read(buf)) > 0 ) {
+        while ((read = ch.read(buf)) > 0) {
             buf.flip();
             byte[] bytes = new byte[buf.limit()];
             buf.get(bytes);
@@ -68,12 +70,11 @@ public class NiochatServer implements Runnable {
             buf.clear();
         }
         String msg;
-        if(read<0) {
-            msg = key.attachment()+" left the chat.\n";
+        if (read < 0) {
+            msg = key.attachment() + " left the chat.\n";
             ch.close();
-        }
-        else {
-            msg = key.attachment()+": "+sb.toString();
+        } else {
+            msg = key.attachment() + ": " + sb.toString();
         }
 
         System.out.println(msg);
@@ -81,10 +82,10 @@ public class NiochatServer implements Runnable {
     }
 
     private void broadcast(String msg) throws IOException {
-        ByteBuffer msgBuf=ByteBuffer.wrap(msg.getBytes());
-        for(SelectionKey key : selector.keys()) {
-            if(key.isValid() && key.channel() instanceof SocketChannel) {
-                SocketChannel sch=(SocketChannel) key.channel();
+        ByteBuffer msgBuf = ByteBuffer.wrap(msg.getBytes());
+        for (SelectionKey key : selector.keys()) {
+            if (key.isValid() && key.channel() instanceof SocketChannel) {
+                SocketChannel sch = (SocketChannel) key.channel();
                 sch.write(msgBuf);
                 msgBuf.rewind();
             }

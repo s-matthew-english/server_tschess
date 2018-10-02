@@ -28,7 +28,7 @@ public class NiochatServer implements Runnable {
             SelectionKey key;
             while(this.ssc.isOpen()) {
                 selector.select();
-                iter = this.selector.selectedKeys().iterator();
+                iter=this.selector.selectedKeys().iterator();
                 while(iter.hasNext()) {
                     key = iter.next();
                     iter.remove();
@@ -43,8 +43,7 @@ public class NiochatServer implements Runnable {
         }
     }
 
-    private final ByteBuffer welcomeBuf = ByteBuffer.wrap("Welcome to NioChat!\n".getBytes());
-
+    private final ByteBuffer welcomeBuf = ByteBuffer.wrap("MESSAGE FROM THE SERVER!\n".getBytes());
     private void handleAccept(SelectionKey key) throws IOException {
         SocketChannel sc = ((ServerSocketChannel) key.channel()).accept();
         String address = (new StringBuilder( sc.socket().getInetAddress().toString() )).append(":").append( sc.socket().getPort() ).toString();
@@ -53,17 +52,6 @@ public class NiochatServer implements Runnable {
         sc.write(welcomeBuf);
         welcomeBuf.rewind();
         System.out.println("accepted connection from: "+address);
-
-        /* Send back to client */
-        String messageStr="Hello Android!";
-        int server_port = 6668;
-        InetAddress backChannel = sc.socket().getInetAddress();
-        DatagramPacket packet = new DatagramPacket(messageStr.getBytes(), messageStr.length(), backChannel, server_port);
-        DatagramSocket socket = new DatagramSocket();
-        socket.send(packet);
-        socket.close();
-
-
     }
 
     private void handleRead(SelectionKey key) throws IOException {

@@ -32,15 +32,14 @@ public class ClientHandler extends Thread {
                 Server.gameState = brinp.readLine();
                 System.out.println(Server.gameState);
 
-//                out.writeBytes(Server.gameState + "\n");
-//                out.flush();
-
                 // says "foo" every half second
                 Timer t = new Timer();
                 t.scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
                         try {
+                            System.out.println("transmitting message...");
+
                             out.writeBytes(Server.gameState + "\n");
                             out.flush();
                         } catch (IOException e) {
@@ -48,7 +47,7 @@ public class ClientHandler extends Thread {
                         }
                     }
                 }, 0, 500);
-                
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

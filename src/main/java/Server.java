@@ -1,7 +1,5 @@
 import java.io.*;
 import java.net.*;
-import java.util.HashMap;
-import java.util.Map;
 
 // Server class 
 public class Server {

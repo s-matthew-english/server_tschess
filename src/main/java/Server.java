@@ -9,7 +9,7 @@ public class Server {
     static String gameState;
     private static List<ClientHandler> connectedClients = new ArrayList<>();
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String... args) throws Exception {
         ServerSocket serverSocket = new ServerSocket(4444);
 
         Timer timer = new Timer();
@@ -23,20 +23,20 @@ public class Server {
                     e.printStackTrace();
                 }
             }
-        }, 0, 50000);
+        }, 0, 500);
 
 
         while (true) {
             Socket socket;
-
             try {
                 socket = serverSocket.accept();
-                System.out.println("A new client is connected : " + socket);
+                System.out.println("A new client is connected: " + socket);
 
                 ClientHandler client = new ClientHandler(socket);
-                client.run();
 
                 connectedClients.add(client);
+
+                client.run();
 
             } catch (Exception e) {
                 System.out.println("error!");
@@ -46,8 +46,9 @@ public class Server {
     }
 
     private static void broadCast() throws Exception {
+        System.out.println("broadCast");
+
         for (ClientHandler activeClient : connectedClients) {
-            System.out.println("activeClient: " + activeClient.getId());
             if (activeClient.dataOutputStream == null) {
                 return;
             }

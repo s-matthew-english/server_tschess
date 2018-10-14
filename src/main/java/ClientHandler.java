@@ -1,12 +1,14 @@
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ClientHandler extends Thread {
     private Socket socket;
-    DataOutputStream dataOutputStream;
 
     ClientHandler(Socket clientSocket) {
         this.socket = clientSocket;
@@ -16,6 +18,7 @@ public class ClientHandler extends Thread {
     public void run() {
         InputStream inputStream;
         BufferedReader bufferedReader;
+        DataOutputStream dataOutputStream;
 
         try {
             inputStream = socket.getInputStream();
@@ -27,6 +30,23 @@ public class ClientHandler extends Thread {
                 Server.gameState = clientInputMessage;
                 System.out.println(Server.gameState);
             }
+
+            // says "foo" every half second
+            Timer timer = new Timer();
+            timer.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    try {
+                        System.out.println("transmitting message...");
+                        dataOutputStream.writeBytes(Server.gameState + "\n");
+                        dataOutputStream.flush();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, 0, 500);
+
         } catch (Exception e) {
             System.out.println("error");
         }

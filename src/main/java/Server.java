@@ -22,7 +22,7 @@ public class Server {
                     e.printStackTrace();
                 }
             }
-        }, 0, 500);
+        }, 0, 5000);
 
         while (true) {
             Socket socket;
@@ -34,7 +34,6 @@ public class Server {
                 client.start();
 
                 connectedClients.add(client);
-
             } catch (Exception e) {
                 System.out.println("error!");
                 e.printStackTrace();

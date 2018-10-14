@@ -26,7 +26,6 @@ public class ClientHandler extends Thread {
                 Server.gameState = bufferedReader.readLine();
 
                 System.out.println(Server.gameState);
-                
             }
 
         } catch (Exception e) {

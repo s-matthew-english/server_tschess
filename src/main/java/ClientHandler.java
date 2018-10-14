@@ -23,17 +23,17 @@ public class ClientHandler extends Thread {
         } catch (IOException e) {
             return;
         }
-        String line;
+
         while (true) {
             try {
-                line = brinp.readLine();
-                if ((line == null)) {
+                Server.gameState = brinp.readLine();
+                if (Server.gameState == null) {
                     socket.close();
                     return;
                 } else {
-                    System.out.println(line);
+                    System.out.println(Server.gameState);
 
-                    out.writeBytes(line + "\n");
+                    out.writeBytes(Server.gameState + "\n");
                     out.flush();
                 }
             } catch (IOException e) {

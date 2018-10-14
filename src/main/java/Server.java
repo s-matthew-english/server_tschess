@@ -1,108 +1,36 @@
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
-import java.nio.channels.AsynchronousServerSocketChannel;
-import java.nio.channels.AsynchronousSocketChannel;
-import java.nio.channels.CompletionHandler;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
-/**
- * Created by teocci.
- *
- * @author teocci@yandex.com on 2017-Jun-21
- */
+// Server class
 public class Server {
-    public Server() {
-        try {
-            // Create an AsynchronousServerSocketChannel that will listen on port 4444
-            final AsynchronousServerSocketChannel listener =
-                    AsynchronousServerSocketChannel.open().bind(new InetSocketAddress(4444));
+    public static String gameState;
 
-            // Listen for a new request
-            listener.accept(null, new CompletionHandler<AsynchronousSocketChannel, Void>() {
-                @Override
-                public void completed(AsynchronousSocketChannel ch, Void att) {
-                    // Accept the next connection
-                    listener.accept(null, this);
+    public static void main(String[] args) throws Exception {
 
-                    // Greet the client
-                    ch.write(ByteBuffer.wrap("Hello, I am Echo Server, let's have a conversation!\n".getBytes()));
+        // server is listening on port 4444
+        ServerSocket serverSocket = new ServerSocket(4444);
 
-                    // Allocate a byte buffer (4K) to read from the client
-                    ByteBuffer byteBuffer = ByteBuffer.allocate(4096);
-                    try {
-                        // Read the first line
-                        int bytesRead = ch.read(byteBuffer).get(120, TimeUnit.SECONDS);
+        // running infinite loop for getting
+        // client request
+        while (true) {
+            Socket socket;
 
-                        boolean running = true;
-                        while (bytesRead != -1 && running) {
-                            System.out.println("bytes read: " + bytesRead);
+            try {
+                // socket object to receive incoming client requests
+                socket = serverSocket.accept();
 
-                            // Make sure that we have data to read
-                            if (byteBuffer.position() > 2) {
-                                // Make the buffer ready to read
-                                byteBuffer.flip();
+                System.out.println("A new client is connected : " + socket);
+                System.out.println("Assigning new thread for this client");
 
-                                // Convert the buffer into a line
-                                byte[] lineBytes = new byte[bytesRead];
-                                byteBuffer.get(lineBytes, 0, bytesRead);
-                                String line = new String(lineBytes);
+                // create a new thread object
+                Thread t = new ClientHandler(socket);
+                // Invoking the start() method
+                t.start();
 
-                                // Debug
-                                System.out.println("Message: " + line);
-
-                                // Echo back to the caller
-                                ch.write(ByteBuffer.wrap(line.getBytes()));
-
-                                // Make the buffer ready to write
-                                byteBuffer.clear();
-
-                                // Read the next line
-                                bytesRead = ch.read(byteBuffer).get(120, TimeUnit.SECONDS);
-                            } else {
-                                // An empty line signifies the end of the conversation in our protocol
-                                running = false;
-                            }
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (TimeoutException e) {
-                        // The user exceeded the 120 second timeout, so close the connection
-                        ch.write(ByteBuffer.wrap("Good Bye\n".getBytes()));
-                        System.out.println("Connection timed out, closing connection");
-                    }
-
-                    System.out.println("End of conversation");
-                    try {
-                        // Close the connection if we need to
-                        if (ch.isOpen()) {
-                            ch.close();
-                        }
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
-                }
-
-                @Override
-                public void failed(Throwable exc, Void att) {
-                    // ...
-                }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void main(String[] args) {
-        new Server();
-        try {
-            Thread.sleep(60000);
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("error!");
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -22,14 +22,14 @@ public class ClientHandler extends Thread {
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
-            String clientInputMessage;
-            while ((clientInputMessage = bufferedReader.readLine()) != null) {
-                Server.gameState = clientInputMessage;
-                System.out.println(Server.gameState);
-            }
+            while (true) {
+                Server.gameState = bufferedReader.readLine();
 
-            dataOutputStream.writeBytes(Server.gameState + "\n");
-            dataOutputStream.flush();
+                System.out.println(Server.gameState);
+
+                dataOutputStream.writeBytes(Server.gameState + "\n");
+                dataOutputStream.flush();
+            }
 
         } catch (Exception e) {
             System.out.println("error");

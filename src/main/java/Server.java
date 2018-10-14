@@ -31,13 +31,31 @@ public class Server {
                 // Invoking the start() method
                 t.run();
 
-//                List<ClientHandler> connectedClients = new ArrayList<>();
-//
-//                connectedClients.add(t);
+                List<Runnable> connectedClients = new ArrayList<>();
+                connectedClients.add(t);
+
+                //says "foo" every half second
+                Timer timer = new Timer();
+                timer.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        try {
+                            System.out.println("transmitting message...");
+
+                            for (Runnable client : connectedClients) {
+                                ClientHandler clientHandler = (ClientHandler) client;
+                                clientHandler.out.writeBytes(Server.gameState + "\n");
+                                clientHandler.out.flush();
+                            }
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, 0, 500);
 
 
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 socket.close();
                 e.printStackTrace();
             }

@@ -33,9 +33,6 @@ public class ClientHandler implements Runnable  {
                 Server.gameState = brinp.readLine();
                 System.out.println(Server.gameState);
 
-                out.writeBytes(Server.gameState + "\n");
-                out.flush();
-
             } catch (IOException e) {
                 e.printStackTrace();
             }

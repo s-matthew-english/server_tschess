@@ -23,7 +23,7 @@ public class Server {
                     e.printStackTrace();
                 }
             }
-        }, 0, 500);
+        }, 0, 50000);
 
 
         while (true) {
@@ -47,6 +47,7 @@ public class Server {
 
     private static void broadCast() throws Exception {
         for (ClientHandler activeClient : connectedClients) {
+            System.out.println("activeClient: " + activeClient.getId());
             if (activeClient.dataOutputStream == null) {
                 return;
             }

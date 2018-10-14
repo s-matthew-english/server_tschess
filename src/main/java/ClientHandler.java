@@ -24,7 +24,7 @@ public class ClientHandler extends Thread {
             brinp = new BufferedReader(new InputStreamReader(inp));
             out = new DataOutputStream(socket.getOutputStream());
         } catch (IOException e) {
-            return;
+            System.out.println("error");
         }
 
         while (true) {

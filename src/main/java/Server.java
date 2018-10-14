@@ -1,56 +1,31 @@
-import java.io.*;
-import java.net.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.net.ServerSocket;
+import java.net.Socket;
 
-// Server class 
+// Server class
 public class Server {
     public static String gameState;
 
-    public static void main(String[] args) throws IOException {
-        int port = 4444;
+    public static void main(String[] args) throws Exception {
+
         // server is listening on port 4444
-        ServerSocket ss = new ServerSocket(port);
+        ServerSocket serverSocket = new ServerSocket(4444);
 
         // running infinite loop for getting
         // client request
         while (true) {
-            Socket socket = null;
+            Socket socket;
 
             try {
                 // socket object to receive incoming client requests
-                socket = ss.accept();
+                socket = serverSocket.accept();
 
                 System.out.println("A new client is connected : " + socket);
                 System.out.println("Assigning new thread for this client");
 
                 // create a new thread object
-                Runnable t = new ClientHandler(socket);
+                Thread t = new ClientHandler(socket);
                 // Invoking the start() method
-                t.run();
-
-                System.out.println("testestest");
-
-                List<Runnable> connectedClients = new ArrayList<>();
-                connectedClients.add(t);
-
-                System.out.println("connectedClients.size(): " + connectedClients.size());
-
-
-                for (Runnable client : connectedClients) {
-
-                    System.out.println("In the loop");
-
-                    ClientHandler clientHandler = (ClientHandler) client;
-
-                    System.out.println("clientHandler: " + clientHandler.socket.toString());
-
-                    clientHandler.out.writeBytes(Server.gameState + "\n");
-                    clientHandler.out.flush();
-                }
-
+                t.start();
 
             } catch (Exception e) {
                 System.out.println("error!");

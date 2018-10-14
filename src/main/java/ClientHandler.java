@@ -4,10 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import java.util.Timer;
-import java.util.TimerTask;
 
-public class ClientHandler implements Runnable  {
+public class ClientHandler extends Thread {
     protected Socket socket;
     DataOutputStream out = null;
 
@@ -17,8 +15,6 @@ public class ClientHandler implements Runnable  {
 
     @Override
     public void run() {
-        System.out.println("ClientHandler running");
-
         InputStream inp = null;
         BufferedReader brinp = null;
 
@@ -29,16 +25,17 @@ public class ClientHandler implements Runnable  {
         } catch (IOException e) {
             System.out.println("error");
         }
+        
+        try {
+            Server.gameState = brinp.readLine();
+            System.out.println(Server.gameState);
 
-        while (true) {
-            try {
-                Server.gameState = brinp.readLine();
-                System.out.println(Server.gameState);
+            out.writeBytes(Server.gameState + "\n");
+            out.flush();
 
-            } catch (IOException e) {
-                System.out.println("error");
-                e.printStackTrace();
-            }
+        } catch (IOException e) {
+            System.out.println("error");
         }
+
     }
 }

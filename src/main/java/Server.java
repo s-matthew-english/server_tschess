@@ -34,6 +34,8 @@ public class Server {
                 List<Runnable> connectedClients = new ArrayList<>();
                 connectedClients.add(t);
 
+                System.out.println("connectedClients.size(): " + connectedClients.size());
+
 
                 for (Runnable client : connectedClients) {
 
@@ -49,7 +51,7 @@ public class Server {
 
 
             } catch (Exception e) {
-                socket.close();
+                System.out.println("error!");
                 e.printStackTrace();
             }
         }

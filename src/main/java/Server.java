@@ -1,12 +1,15 @@
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 // Server class 
 public class Server {
     public static String gameState;
 
     public static void main(String[] args) throws IOException {
-
         int port = 4444;
         // server is listening on port 4444
         ServerSocket ss = new ServerSocket(port);
@@ -24,9 +27,15 @@ public class Server {
                 System.out.println("Assigning new thread for this client");
 
                 // create a new thread object
-                Thread t = new ClientHandler(socket);
+                Runnable t = new ClientHandler(socket);
                 // Invoking the start() method
-                t.start();
+                t.run();
+
+//                List<ClientHandler> connectedClients = new ArrayList<>();
+//
+//                connectedClients.add(t);
+
+
             }
             catch (Exception e) {
                 socket.close();

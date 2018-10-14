@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ClientHandler extends Thread {
+public class ClientHandler implements Runnable  {
     protected Socket socket;
     DataOutputStream out = null;
 
@@ -15,6 +15,7 @@ public class ClientHandler extends Thread {
         this.socket = clientSocket;
     }
 
+    @Override
     public void run() {
         InputStream inp = null;
         BufferedReader brinp = null;
@@ -32,21 +33,8 @@ public class ClientHandler extends Thread {
                 Server.gameState = brinp.readLine();
                 System.out.println(Server.gameState);
 
-                // says "foo" every half second
-                Timer t = new Timer();
-                t.scheduleAtFixedRate(new TimerTask() {
-                    @Override
-                    public void run() {
-                        try {
-                            System.out.println("transmitting message...");
-
-                            out.writeBytes(Server.gameState + "\n");
-                            out.flush();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, 0, 500);
+                out.writeBytes(Server.gameState + "\n");
+                out.flush();
 
             } catch (IOException e) {
                 e.printStackTrace();

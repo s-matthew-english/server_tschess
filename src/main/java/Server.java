@@ -27,7 +27,6 @@ public class Server {
 
                 // create a new thread object
                 Thread t = new ClientHandler(socket);
-
                 // Invoking the start() method
                 t.start();
             }

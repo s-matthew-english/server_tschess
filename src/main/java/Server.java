@@ -7,7 +7,7 @@ import java.util.TimerTask;
 
 public class Server {
     static String gameState;
-    static ClientHandler client;
+    private static List<ClientHandler> connectedClients = new ArrayList<>();
 
     public static void main(String... args) throws Exception {
         ServerSocket serverSocket = new ServerSocket(4444);
@@ -22,7 +22,7 @@ public class Server {
                     e.printStackTrace();
                 }
             }
-        }, 0, 50);
+        }, 0, 500);
 
         while (true) {
             Socket socket;
@@ -30,8 +30,10 @@ public class Server {
                 socket = serverSocket.accept();
                 System.out.println("A new client is connected: " + socket);
 
-                client = new ClientHandler(socket);
+                ClientHandler client = new ClientHandler(socket);
                 client.start();
+
+                connectedClients.add(client);
 
             } catch (Exception e) {
                 System.out.println("error!");
@@ -41,14 +43,19 @@ public class Server {
     }
 
     private static void broadCast() throws Exception {
-        if(client == null) {
+        if (connectedClients == null) {
             return;
         }
-        if(client.dataOutputStream == null) {
-            return;
+        for (ClientHandler client : connectedClients) {
+            if (client == null) {
+                return;
+            }
+            if (client.dataOutputStream == null) {
+                return;
+            }
+            System.out.println("broadCast");
+            client.dataOutputStream.writeBytes(Server.gameState + "\n");
+            client.dataOutputStream.flush();
         }
-        System.out.println("broadCast");
-        client.dataOutputStream.writeBytes(Server.gameState + "\n");
-        client.dataOutputStream.flush();
     }
 }

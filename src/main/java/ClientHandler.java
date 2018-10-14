@@ -17,7 +17,6 @@ public class ClientHandler extends Thread {
         InputStream inputStream;
         BufferedReader bufferedReader;
 
-
         try {
             inputStream = socket.getInputStream();
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -26,7 +25,6 @@ public class ClientHandler extends Thread {
             String clientInputMessage;
             while ((clientInputMessage = bufferedReader.readLine()) != null) {
                 Server.gameState = clientInputMessage;
-
                 System.out.println(Server.gameState);
             }
         } catch (Exception e) {

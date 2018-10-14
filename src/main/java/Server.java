@@ -16,13 +16,14 @@ public class Server {
 
             try {
                 socket = serverSocket.accept();
-
-                Thread client = new ClientHandler(socket);
-
                 System.out.println("A new client is connected : " + socket);
+
+                ClientHandler client = new ClientHandler(socket);
+
                 if (!connectedClients.contains(client)) {
                     System.out.println("Assigning new thread for this client");
-                    connectedClients.add((ClientHandler)client);
+                    connectedClients.add(client);
+                    System.out.println("size: " + connectedClients.size());
                 }
                 client.start();
 

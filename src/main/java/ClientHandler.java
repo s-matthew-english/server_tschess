@@ -27,18 +27,12 @@ public class ClientHandler extends Thread {
         while (true) {
             try {
                 Server.gameState = brinp.readLine();
-                if (Server.gameState == null) {
-                    socket.close();
-                    return;
-                } else {
-                    System.out.println(Server.gameState);
+                System.out.println(Server.gameState);
 
-                    out.writeBytes(Server.gameState + "\n");
-                    out.flush();
-                }
+                out.writeBytes(Server.gameState + "\n");
+                out.flush();
             } catch (IOException e) {
                 e.printStackTrace();
-                return;
             }
         }
     }

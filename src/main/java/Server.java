@@ -31,6 +31,8 @@ public class Server {
                 // Invoking the start() method
                 t.run();
 
+                System.out.println("testestest");
+
                 List<Runnable> connectedClients = new ArrayList<>();
                 connectedClients.add(t);
 

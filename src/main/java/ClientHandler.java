@@ -34,6 +34,7 @@ public class ClientHandler implements Runnable  {
                 System.out.println(Server.gameState);
 
             } catch (IOException e) {
+                System.out.println("error");
                 e.printStackTrace();
             }
         }

@@ -1,26 +1,28 @@
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 // Server class
 public class Server {
-    public static String gameState;
+    static String gameState;
+    public static List<Socket> connectedClients = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
-
-        // server is listening on port 4444
         ServerSocket serverSocket = new ServerSocket(4444);
 
-        // running infinite loop for getting
-        // client request
         while (true) {
             Socket socket;
 
             try {
-                // socket object to receive incoming client requests
                 socket = serverSocket.accept();
 
                 System.out.println("A new client is connected : " + socket);
-                System.out.println("Assigning new thread for this client");
+                if(!connectedClients.contains(socket)){
+                    System.out.println("Assigning new thread for this client");
+                    connectedClients.add(socket);
+                    System.out.println("size: " + connectedClients.size());
+                }
 
                 // create a new thread object
                 Thread t = new ClientHandler(socket);

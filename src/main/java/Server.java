@@ -36,6 +36,9 @@ public class Server {
 
 
                 for (Runnable client : connectedClients) {
+
+                    System.out.println("In the loop");
+
                     ClientHandler clientHandler = (ClientHandler) client;
 
                     System.out.println("clientHandler: " + clientHandler.socket.toString());

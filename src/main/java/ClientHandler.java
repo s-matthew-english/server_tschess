@@ -17,6 +17,8 @@ public class ClientHandler implements Runnable  {
 
     @Override
     public void run() {
+        System.out.println("ClientHandler running");
+
         InputStream inp = null;
         BufferedReader brinp = null;
 

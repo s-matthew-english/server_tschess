@@ -6,6 +6,7 @@ import java.net.Socket;
 
 public class ClientHandler extends Thread {
     private Socket socket;
+    DataOutputStream dataOutputStream;
 
     ClientHandler(Socket clientSocket) {
         this.socket = clientSocket;
@@ -15,7 +16,7 @@ public class ClientHandler extends Thread {
     public void run() {
         InputStream inputStream;
         BufferedReader bufferedReader;
-        DataOutputStream dataOutputStream;
+
 
         try {
             inputStream = socket.getInputStream();
@@ -27,8 +28,6 @@ public class ClientHandler extends Thread {
                 Server.gameState = clientInputMessage;
 
                 System.out.println(Server.gameState);
-                dataOutputStream.writeBytes(Server.gameState + "\n");
-                dataOutputStream.flush();
             }
         } catch (Exception e) {
             System.out.println("error");

@@ -6,7 +6,7 @@ import java.util.List;
 // Server class
 public class Server {
     static String gameState;
-    public static List<Socket> connectedClients = new ArrayList<>();
+    public static List<ClientHandler> connectedClients = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
         ServerSocket serverSocket = new ServerSocket(4444);
@@ -17,17 +17,19 @@ public class Server {
             try {
                 socket = serverSocket.accept();
 
-                System.out.println("A new client is connected : " + socket);
-                if(!connectedClients.contains(socket)){
-                    System.out.println("Assigning new thread for this client");
-                    connectedClients.add(socket);
-                    System.out.println("size: " + connectedClients.size());
-                }
+                Thread client = new ClientHandler(socket);
 
-                // create a new thread object
-                Thread t = new ClientHandler(socket);
-                // Invoking the start() method
-                t.start();
+                System.out.println("A new client is connected : " + socket);
+                if (!connectedClients.contains(client)) {
+                    System.out.println("Assigning new thread for this client");
+                    connectedClients.add((ClientHandler)client);
+                }
+                client.start();
+
+                for (ClientHandler activeClient : connectedClients) {
+                    activeClient.dataOutputStream.writeBytes(Server.gameState + "\n");
+                    activeClient.dataOutputStream.flush();
+                }
 
             } catch (Exception e) {
                 System.out.println("error!");

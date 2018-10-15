@@ -3,8 +3,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Server {
     static String gameState;
@@ -12,18 +10,6 @@ public class Server {
 
     public static void main(String... args) throws Exception {
         ServerSocket serverSocket = new ServerSocket(4444);
-
-//        Timer timer = new Timer();
-//        timer.scheduleAtFixedRate(new TimerTask() {
-//            @Override
-//            public void run() {
-//                try {
-//                    broadCast();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }, 0, 5000);
 
         while (true) {
             Socket socket;

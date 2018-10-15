@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -13,17 +12,17 @@ public class Server {
     public static void main(String... args) throws Exception {
         ServerSocket serverSocket = new ServerSocket(4444);
 
-//        Timer timer = new Timer();
-//        timer.scheduleAtFixedRate(new TimerTask() {
-//            @Override
-//            public void run() {
-//                try {
-//                    broadCast();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }, 0, 5000);
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    broadCast();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 0, 5000);
 
         while (true) {
             Socket socket;
@@ -42,7 +41,7 @@ public class Server {
         }
     }
 
-    public static void broadCast() {
+    private static void broadCast() throws Exception {
         if (connectedClients == null) {
             return;
         }
@@ -54,14 +53,8 @@ public class Server {
                 return;
             }
             System.out.println("broadCast");
-            Thread t = new Thread(() -> {
-                try {
-                    client.dataOutputStream.writeBytes(Server.gameState + "\n");
-                    client.dataOutputStream.flush();
-                } catch (IOException e) {
-                }
-            });
-            t.start();
+            client.dataOutputStream.writeBytes(Server.gameState + "\n");
+            client.dataOutputStream.flush();
         }
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Server {
     static String gameState;
-    private static List<ClientHandler> connectedClients = new ArrayList<>();
+    static List<ClientHandler> connectedClients = new ArrayList<>();
 
     public static void main(String... args) throws Exception {
         ServerSocket serverSocket = new ServerSocket(4444);
@@ -28,7 +28,7 @@ public class Server {
         }
     }
 
-    public static void broadCast() {
+    static void broadCast() {
         if (connectedClients == null) {
             return;
         }

@@ -7,6 +7,7 @@ import java.net.Socket;
 public class ClientHandler extends Thread {
     private Socket socket;
     DataOutputStream dataOutputStream = null;
+    boolean initialMessage = true;
 
     ClientHandler(Socket clientSocket) {
         this.socket = clientSocket;
@@ -23,6 +24,16 @@ public class ClientHandler extends Thread {
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
             String clientInputMessage;
+
+            if (initialMessage && (Server.connectedClients.size() == 1)) {
+                dataOutputStream.writeBytes("WHITE" + "\n");
+                initialMessage = false;
+            }
+            if (initialMessage && (Server.connectedClients.size() == 2)) {
+                dataOutputStream.writeBytes("BLACK" + "\n");
+                initialMessage = false;
+            }
+
             while ((clientInputMessage = bufferedReader.readLine()) != null) {
                 Server.gameState = clientInputMessage;
                 System.out.println(Server.gameState);
@@ -34,3 +45,4 @@ public class ClientHandler extends Thread {
         }
     }
 }
+

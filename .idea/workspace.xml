@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="13d0c138-9917-48d3-a53e-3a7051ac70a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/BlockchainPoller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BlockchainPoller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BlockchainPollerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BlockchainPollerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/modules/.gradle/" />
@@ -37,25 +38,25 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="1" />
-          <entry key="java" value="19" />
+          <entry key="java" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="19" />
+          <entry key="JAVA" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="3" />
-          <entry key="java" value="1708" />
+          <entry key="java" value="1833" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="1708" />
+          <entry key="JAVA" value="1833" />
         </counts>
       </usages-collector>
     </session>
@@ -89,8 +90,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/BlockchainPoller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+            <state relative-caret-position="224">
+              <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/BlockchainPollerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+            <state relative-caret-position="280">
+              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -112,24 +113,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="229">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.11.0/cf16b99519850b1adc3b259c90fd8566a0f592f3/okhttp-3.11.0-sources.jar!/okhttp3/Response.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.11.0/cf16b99519850b1adc3b259c90fd8566a0f592f3/okhttp-3.11.0-sources.jar!/okhttp3/RequestBody.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="46" column="82" selection-start-line="46" selection-start-column="68" selection-end-line="46" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -454,9 +437,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/ClientHandler.java" />
-        <option value="$PROJECT_DIR$/src/test/java/BlockchainPollerTest.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/BlockchainPoller.java" />
+        <option value="$PROJECT_DIR$/src/test/java/BlockchainPollerTest.java" />
       </list>
     </option>
   </component>
@@ -521,7 +504,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541189707942" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541191724350" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -604,34 +587,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 15h 34m 03s.xml">
+    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 16h 21m 04s.xml">
       <configuration name="BlockchainPollerTest.hitInfuraTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 15h 35m 24s.xml">
+    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 16h 23m 05s.xml">
       <configuration name="BlockchainPollerTest.hitInfuraTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 15h 35m 48s.xml">
+    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 16h 23m 23s.xml">
       <configuration name="BlockchainPollerTest.hitInfuraTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 15h 45m 37s.xml">
+    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 16h 29m 41s.xml">
       <configuration name="BlockchainPollerTest.hitInfuraTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 15h 46m 12s.xml">
+    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 16h 31m 06s.xml">
       <configuration name="BlockchainPollerTest.hitInfuraTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 15h 46m 35s.xml">
+    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 16h 39m 58s.xml">
       <configuration name="BlockchainPollerTest.hitInfuraTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 15h 47m 34s.xml">
+    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 16h 40m 43s.xml">
       <configuration name="BlockchainPollerTest.hitInfuraTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 15h 48m 05s.xml">
+    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 16h 40m 54s.xml">
       <configuration name="BlockchainPollerTest.hitInfuraTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 15h 48m 25s.xml">
+    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 16h 41m 19s.xml">
       <configuration name="BlockchainPollerTest.hitInfuraTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 15h 49m 38s.xml">
+    <history-entry file="BlockchainPollerTest_hitInfuraTest - 2018.11.02 at 16h 42m 02s.xml">
       <configuration name="BlockchainPollerTest.hitInfuraTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -644,7 +627,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.012285012" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.09398034" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -652,8 +635,8 @@
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" x="0" y="22" width="1680" height="1028" id="Run" order="6" visible="true" weight="0.34406215" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" x="0" y="22" width="1680" height="1028" id="Run" order="6" weight="0.34406215" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39955604" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -793,13 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/BlockchainPollerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.11.0/cf16b99519850b1adc3b259c90fd8566a0f592f3/okhttp-3.11.0-sources.jar!/okhttp3/Response.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-210">
@@ -814,10 +790,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/model/FrameworkMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#1464#1658#0" expanded="true" />
+            <element signature="e#1657#1658#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/statements/InvokeMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/BlockJUnit4ClassRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="369" selection-start-line="369" selection-end-line="369" />
+          <folding>
+            <element signature="e#2922#2923#0" expanded="true" />
+            <element signature="e#2966#2967#0" expanded="true" />
+            <element signature="e#10310#10449#0" expanded="true" />
+            <element signature="e#10448#10449#0" expanded="true" />
+            <element signature="e#11040#11204#0" expanded="true" />
+            <element signature="e#11203#11204#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runner/JUnitCore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/BlockchainPollerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/BlockchainPoller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state relative-caret-position="224">
+          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

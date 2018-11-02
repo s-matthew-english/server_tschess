@@ -9,6 +9,5 @@ public class BlockchainPollerTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -4,21 +4,17 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import java.net.URL;
-
 public class BlockchainPoller {
 
     public static void hitInfura() throws Exception {
+        MediaType json = MediaType.parse("application/json; charset=utf-8");
+        String content = "{\"jsonrpc\":\"2.0\",\"id\":67,\"method\":\"web3_clientVersion\"}";
+        RequestBody body = RequestBody.create(json, content);
 
+        String url = "https://mainnet.infura.io";
         OkHttpClient client = new OkHttpClient();
-        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
-        final RequestBody body =
-                RequestBody.create(
-                        JSON,
-                        "{\"jsonrpc\":\"2.0\",\"id\":" + " 67 " + ",\"method\":\"web3_clientVersion\"}");
-        final Request request = new Request.Builder().post(body).url(new URL("https://mainnet.infura.io")).build();
-
+        Request request = new Request.Builder().post(body).url(url).build();
         Response resp = client.newCall(request).execute();
 
         System.out.println(resp.body().string());

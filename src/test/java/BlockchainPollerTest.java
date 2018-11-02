@@ -9,7 +9,7 @@ public class BlockchainPollerTest {
     public void hitInfuraTest() throws Exception {
         Timer t = new Timer();
         BlockchainPoller mTask = new BlockchainPoller();
-        t.scheduleAtFixedRate(mTask, 0, 10);
+        t.scheduleAtFixedRate(mTask, 0, 10000);
 
         TimeUnit.SECONDS.sleep(1000);
     }
